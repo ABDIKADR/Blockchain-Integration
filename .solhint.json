@@ -1,1 +1,10 @@
-{ "extends": "solhint:recommended" }
+{
+  "extends": "solhint:recommended",
+  "rules": {
+    "compiler-version": ["error", "^0.8.0"],
+    "func-visibility": ["warn", { "ignoreConstructors": true }],
+    "indent": "off",
+    "two-lines-top-level-separator": "off",
+    "var-name-mixedcase": "off"
+  }
+}
