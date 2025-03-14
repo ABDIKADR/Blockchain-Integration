@@ -21,7 +21,7 @@ contract StorageContract {
         _;
     }
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
