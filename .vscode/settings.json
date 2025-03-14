@@ -1,0 +1,9 @@
+{
+  "solidity.linter": "none",
+  "solidity.enabledAsYouTypeCompilationErrorCheck": false,
+  "solidity.validationDelay": 0,
+  "solidity.compileUsingRemoteVersion": "0.8.24",
+  "editor.formatOnSave": false,
+  "linter.enable": false,
+  "linter.run": "never"
+}
