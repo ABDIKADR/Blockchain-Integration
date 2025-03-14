@@ -10,7 +10,7 @@ const {
 
 /**
  * @route   POST /api/deploy-contract
- * @desc    Deploy a new instance of the MessageStorage contract
+ * @desc    Deploy a new instance of the StorageContract contract
  * @access  Public
  */
 router.post('/deploy-contract', async (req, res) => {

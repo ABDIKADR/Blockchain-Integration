@@ -4,7 +4,7 @@ const fs = require('fs');
 const axios = require('axios');
 
 // Load the contract ABI from the compiled contract
-const contractPath = path.join(__dirname, '../contracts/out/SimpleStorage.sol/SimpleStorage.json');
+const contractPath = path.join(__dirname, '../contracts/out/StorageContract.sol/StorageContract.json');
 const contractJson = JSON.parse(fs.readFileSync(contractPath));
 const contractABI = contractJson.abi;
 const contractBytecode = contractJson.bytecode.object;
@@ -22,10 +22,10 @@ const wallet = new ethers.Wallet(
 const API_BASE_URL = 'http://localhost:4000/api';
 
 /**
- * Deploy the SimpleStorage contract
+ * Deploy the StorageContract contract
  */
 async function deployContract() {
-  console.log('Deploying SimpleStorage contract...');
+  console.log('Deploying StorageContract contract...');
 
   const contractFactory = new ethers.ContractFactory(contractABI, contractBytecode, wallet);
 

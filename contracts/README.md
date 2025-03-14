@@ -1,4 +1,4 @@
-# SimpleStorage Smart Contract
+# StorageContract Smart Contract
 
 This is a simple smart contract implementation that allows users to store and retrieve messages on the blockchain. The contract is built using Solidity and Foundry for testing.
 
@@ -11,13 +11,13 @@ This is a simple smart contract implementation that allows users to store and re
 
 ## Project Structure
 
-- `src/SimpleStorage.sol`: The main smart contract
-- `test/SimpleStorage.t.sol`: Tests for the smart contract
+- `src/StorageContract.sol`: The main smart contract
+- `test/StorageContract.t.sol`: Tests for the smart contract
 - `scripts/deploy-contract.js`: Script to deploy the contract and test the API
 
 ## Smart Contract Details
 
-The `SimpleStorage` contract has the following functions:
+The `StorageContract` contract has the following functions:
 
 - `storeMessage(string memory _message)`: Allows the owner to store a message
 - `retrieveMessage()`: Returns the stored message
@@ -86,14 +86,14 @@ forge test -vv
 ### Deploying the Contract
 
 ```javascript
-const response = await axios.post('http://localhost:5000/api/deploy-contract');
+const response = await axios.post('http://localhost:4000/api/deploy-contract');
 const contractAddress = response.data.contractAddress;
 ```
 
 ### Storing a Message
 
 ```javascript
-await axios.post('http://localhost:5000/api/store-message', {
+await axios.post('http://localhost:4000/api/store-message', {
   contractAddress: 'YOUR_CONTRACT_ADDRESS',
   message: 'Hello, Blockchain!',
 });
@@ -102,6 +102,6 @@ await axios.post('http://localhost:5000/api/store-message', {
 ### Retrieving a Message
 
 ```javascript
-const response = await axios.get('http://localhost:5000/api/retrieve-message?contractAddress=YOUR_CONTRACT_ADDRESS');
+const response = await axios.get('http://localhost:4000/api/retrieve-message?contractAddress=YOUR_CONTRACT_ADDRESS');
 const message = response.data.data;
 ```

@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Load the contract ABI from the compiled contract
-const contractPath = path.join(__dirname, '../../contracts/out/SimpleStorage.sol/SimpleStorage.json');
+const contractPath = path.join(__dirname, '../../contracts/out/StorageContract.sol/StorageContract.json');
 const contractABI = JSON.parse(fs.readFileSync(contractPath)).abi;
 
 // Contract address - this will be set after deployment
@@ -19,7 +19,7 @@ const wallet = new ethers.Wallet(
 );
 
 // Contract instance
-let simpleStorageContract = null;
+let storageContract = null;
 
 /**
  * Initialize the contract instance
@@ -34,8 +34,8 @@ const initializeContract = address => {
     throw new Error('Contract address not set');
   }
 
-  simpleStorageContract = new ethers.Contract(contractAddress, contractABI, wallet);
-  return simpleStorageContract;
+  storageContract = new ethers.Contract(contractAddress, contractABI, wallet);
+  return storageContract;
 };
 
 /**
@@ -44,11 +44,11 @@ const initializeContract = address => {
  * @returns {Promise<object>} - Transaction receipt
  */
 const storeMessage = async message => {
-  if (!simpleStorageContract) {
+  if (!storageContract) {
     throw new Error('Contract not initialized');
   }
 
-  const tx = await simpleStorageContract.storeMessage(message);
+  const tx = await storageContract.storeMessage(message);
   const receipt = await tx.wait();
   return receipt;
 };
@@ -58,22 +58,22 @@ const storeMessage = async message => {
  * @returns {Promise<string>} - The stored message
  */
 const retrieveMessage = async () => {
-  if (!simpleStorageContract) {
+  if (!storageContract) {
     throw new Error('Contract not initialized');
   }
 
-  const message = await simpleStorageContract.retrieveMessage();
+  const message = await storageContract.retrieveMessage();
   return message;
 };
 
 /**
- * Deploy a new instance of the SimpleStorage contract
+ * Deploy a new instance of the StorageContract contract
  * @returns {Promise<string>} - The address of the deployed contract
  */
 const deployContract = async () => {
   const contractFactory = new ethers.ContractFactory(
     contractABI,
-    fs.readFileSync(path.join(__dirname, '../../contracts/out/SimpleStorage.sol/SimpleStorage.json')).bytecode,
+    fs.readFileSync(path.join(__dirname, '../../contracts/out/StorageContract.sol/StorageContract.json')).bytecode,
     wallet,
   );
 
@@ -81,7 +81,7 @@ const deployContract = async () => {
   await contract.deployed();
 
   contractAddress = contract.address;
-  simpleStorageContract = contract;
+  storageContract = contract;
 
   return contractAddress;
 };

@@ -2,10 +2,10 @@
 pragma solidity 0.8.24;
 
 /**
- * @title SimpleStorage
+ * @title StorageContract
  * @dev A simple contract for storing and retrieving messages
  */
-contract SimpleStorage {
+contract StorageContract {
     address public owner;
     string private message;
 
