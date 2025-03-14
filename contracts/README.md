@@ -11,7 +11,7 @@ This is a simple smart contract implementation that allows users to store and re
 
 ## Project Structure
 
-- `src/MessageStorage.sol`: The main smart contract
+- `src/SimpleStorage.sol`: The main smart contract
 - `test/MessageStorage.t.sol`: Tests for the smart contract
 - `scripts/deploy-contract.js`: Script to deploy the contract and test the API
 

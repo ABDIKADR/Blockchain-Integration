@@ -5,7 +5,7 @@ This project demonstrates a simple smart contract implementation that allows use
 ## Project Structure
 
 - `contracts/`: Contains the smart contract code and tests
-  - `src/MessageStorage.sol`: The main smart contract
+  - `src/SimpleStorage.sol`: The main smart contract
   - `test/MessageStorage.t.sol`: Tests for the smart contract
 - `server/`: Contains the backend API code
   - `routes/messageRoute.js`: API routes for interacting with the smart contract
