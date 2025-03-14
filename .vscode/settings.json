@@ -5,5 +5,14 @@
   "solidity.compileUsingRemoteVersion": "0.8.24",
   "editor.formatOnSave": false,
   "linter.enable": false,
-  "linter.run": "never"
+  "linter.run": "never",
+  "solhint.enable": false,
+  "solhint.run": "never",
+  "solidity.enableLocalNodeCompiler": false,
+  "solidity.packageDefaultDependenciesContractsDirectory": "",
+  "solidity.packageDefaultDependenciesDirectory": "",
+  "solidity.formatter": "none",
+  "extensions.ignoreRecommendations": true,
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false
 }

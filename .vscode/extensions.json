@@ -1,0 +1,9 @@
+{
+  "unwantedRecommendations": [
+    "fnando.linter",
+    "juanblanco.solidity",
+    "nomicfoundation.hardhat-solidity",
+    "esbenp.prettier-vscode"
+  ],
+  "recommendations": []
+}
