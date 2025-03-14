@@ -6,7 +6,7 @@ This project demonstrates a simple smart contract implementation that allows use
 
 - `contracts/`: Contains the smart contract code and tests
   - `src/SimpleStorage.sol`: The main smart contract
-  - `test/MessageStorage.t.sol`: Tests for the smart contract
+  - `test/SimpleStorage.t.sol`: Tests for the smart contract
 - `server/`: Contains the backend API code
   - `routes/messageRoute.js`: API routes for interacting with the smart contract
   - `utils/contractUtils.js`: Utility functions for interacting with the smart contract

@@ -1,4 +1,4 @@
-# MessageStorage Smart Contract
+# SimpleStorage Smart Contract
 
 This is a simple smart contract implementation that allows users to store and retrieve messages on the blockchain. The contract is built using Solidity and Foundry for testing.
 
@@ -12,12 +12,12 @@ This is a simple smart contract implementation that allows users to store and re
 ## Project Structure
 
 - `src/SimpleStorage.sol`: The main smart contract
-- `test/MessageStorage.t.sol`: Tests for the smart contract
+- `test/SimpleStorage.t.sol`: Tests for the smart contract
 - `scripts/deploy-contract.js`: Script to deploy the contract and test the API
 
 ## Smart Contract Details
 
-The `MessageStorage` contract has the following functions:
+The `SimpleStorage` contract has the following functions:
 
 - `storeMessage(string memory _message)`: Allows the owner to store a message
 - `retrieveMessage()`: Returns the stored message

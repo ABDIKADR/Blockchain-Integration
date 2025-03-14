@@ -2,10 +2,10 @@
 pragma solidity 0.8.19;
 
 import {Test} from "forge-std/Test.sol";
-import {MessageStorage} from "../src/SimpleStorage.sol";
+import {SimpleStorage} from "../src/SimpleStorage.sol";
 
-contract MessageStorageTest is Test {
-    MessageStorage public messageStorage;
+contract SimpleStorageTest is Test {
+    SimpleStorage public simpleStorage;
     address public owner;
     address public user;
 
@@ -17,17 +17,17 @@ contract MessageStorageTest is Test {
         user = address(0x1);
 
         // Deploy the contract
-        messageStorage = new MessageStorage();
+        simpleStorage = new SimpleStorage();
     }
 
     function testStoreMessage() public {
         string memory testMessage = "Hello, Blockchain!";
 
         // Store a message
-        messageStorage.storeMessage(testMessage);
+        simpleStorage.storeMessage(testMessage);
 
         // Verify the message was stored correctly
-        assertEq(messageStorage.retrieveMessage(), testMessage);
+        assertEq(simpleStorage.retrieveMessage(), testMessage);
     }
 
     function testOnlyOwnerCanStoreMessage() public {
@@ -36,7 +36,7 @@ contract MessageStorageTest is Test {
         // Try to store a message as a non-owner
         vm.prank(user);
         vm.expectRevert("Not authorized: Only owner can perform this action");
-        messageStorage.storeMessage(testMessage);
+        simpleStorage.storeMessage(testMessage);
     }
 
     function testEmptyMessageReverts() public {
@@ -44,22 +44,22 @@ contract MessageStorageTest is Test {
 
         // Try to store an empty message
         vm.expectRevert("Message cannot be empty");
-        messageStorage.storeMessage(emptyMessage);
+        simpleStorage.storeMessage(emptyMessage);
     }
 
     function testTransferOwnership() public {
         // Transfer ownership to user
-        messageStorage.transferOwnership(user);
+        simpleStorage.transferOwnership(user);
 
         // Verify ownership was transferred
-        assertEq(messageStorage.owner(), user);
+        assertEq(simpleStorage.owner(), user);
 
         // Try to store a message as the new owner
         vm.prank(user);
-        messageStorage.storeMessage("New owner message");
+        simpleStorage.storeMessage("New owner message");
 
         // Verify the message was stored
-        assertEq(messageStorage.retrieveMessage(), "New owner message");
+        assertEq(simpleStorage.retrieveMessage(), "New owner message");
     }
 
     function testEventEmission() public {
@@ -70,6 +70,6 @@ contract MessageStorageTest is Test {
         emit MessageStored(owner, testMessage);
 
         // Store a message
-        messageStorage.storeMessage(testMessage);
+        simpleStorage.storeMessage(testMessage);
     }
 }

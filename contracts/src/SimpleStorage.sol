@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-contract MessageStorage {
+// SimpleStorage contract for storing and retrieving messages
+contract SimpleStorage {
     address public owner;
     string private message;
 
