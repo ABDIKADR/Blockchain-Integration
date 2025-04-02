@@ -1,6 +1,6 @@
-# Smart Contract Testing Project
+# Blockchain-Integration
 
-This project demonstrates a simple smart contract implementation that allows users to store and retrieve messages on the blockchain. The project includes a Solidity smart contract, tests, and a backend API to interact with the contract.
+A simple blockchain-based message storage system built with Solidity, Ethers.js, and Express. Demonstrates smart contract development, blockchain integration, and API creation with proper access controls. Includes comprehensive testing and a demo UI for interaction.
 
 ## Project Structure
 
@@ -92,8 +92,3 @@ forge test -vv
 - Ethers.js: For interacting with the Ethereum blockchain
 - Express.js: For building the backend API
 - Anvil: For local Ethereum development
-
-```
-
-
-```
